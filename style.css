@@ -1,0 +1,172 @@
+/* --- GLOBAL DESIGN SYSTEM (STITCH PRODUCTION BUILD) --- */
+:root {
+  --color-cream: #f7f4ef;
+  --color-sage: #5a7f6b;
+  --color-gold: #c9a96e;
+  --color-dark: #18181b;
+  --font-display: "Cormorant Garamond", serif;
+  --font-sans: "Jost", sans-serif;
+}
+
+body {
+  background-color: var(--color-cream);
+  color: var(--color-dark);
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  image-rendering: -webkit-optimize-contrast;
+}
+
+h1, h2, h3, h4, .font-serif {
+  font-family: var(--font-display);
+  font-weight: 500;
+  letter-spacing: -0.01em;
+}
+
+
+/* Progress Bar */
+
+/* Progress Bar */
+.progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background-color: var(--color-sage);
+  z-index: 10000;
+}
+
+/* Reveal Transitions */
+.reveal-img-container {
+  clip-path: inset(100% 0 0 0);
+  overflow: hidden;
+}
+
+.reveal-img-container img {
+  transform: scale(1.3);
+  will-change: transform;
+}
+
+/* Grain Animation Overlay */
+.grain {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 9998;
+  pointer-events: none;
+  opacity: 0.04;
+  background-image: url(https://lh3.googleusercontent.com/aida-public/AB6AXuCTtyKOrNvIpveSP1tGZGBh-x5IGg9mCsYUXu6W6fQcLPyKO0NumAt1FGCnFnPdCzgTFXX5pwFJvKnbrFWeFsB8hwViJwcLtHXdwHzX7iAxTMmFN57NbV8dZ4aRXSS45xqUfafpM1CZj6l0iXAY_O5unMzzndAWWAQGj3H9LLyNAqO59ZGqy6Ap1f0p3OtI-UNR6yT3SjtecVMgQ9vJ5-T_hf23ChInF3ShfB_3h-dIT0lemVqhlL6h7pz3mwXjQc4yjtbtPYfqWY);
+}
+
+/* Mobile Nav Overlay */
+.mobile-nav {
+  position: fixed;
+  inset: 0;
+  background-color: var(--color-cream);
+  z-index: 2000;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.5s ease;
+}
+
+.mobile-nav.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.mobile-nav a {
+  font-family: var(--font-display);
+  font-size: 2.5rem;
+  font-style: italic;
+  color: var(--color-sage);
+}
+
+.menu-toggle.active div:first-child { transform: translateY(5px) rotate(45deg); background-color: var(--color-sage); }
+.menu-toggle.active div:last-child { transform: translateY(-5px) rotate(-45deg); background-color: var(--color-sage); }
+
+/* Animation Classes */
+.animate-slide-up {
+  opacity: 0;
+  transform: translateY(30px);
+  will-change: transform, opacity;
+}
+
+/* Specific Section Fixes */
+.booking-card {
+  box-shadow: 0 20px 60px rgba(0,0,0,0.05);
+}
+
+.faq-item-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease;
+}
+
+.faq-item.active .faq-item-content {
+  max-height: 200px;
+}
+
+.faq-item.active .faq-icon {
+  transform: rotate(45deg);
+}
+
+/* Horizontal Scroll Support */
+.horizontal-scroll-container {
+  display: flex;
+  width: fit-content;
+}
+
+.service-card {
+  width: 450px;
+  flex-shrink: 0;
+}
+
+.video-overlay {
+  background: linear-gradient(0deg, rgba(247, 244, 239, 0.9) 0%, rgba(247, 244, 239, 0.5) 50%, rgba(247, 244, 239, 0.9) 100%);
+}
+
+/* Pinned Section Backgrounds */
+.pinned-bg-wrapper {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.pinned-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transform: scale(1.1);
+  will-change: transform, opacity;
+}
+
+/* Transition Utilities */
+.animate-fade-in {
+  opacity: 0;
+  transition: opacity 1s ease-out;
+}
+
+.animate-fade-in.active {
+  opacity: 1;
+}
+
+/* Responsive Fixes */
+@media (max-width: 768px) {
+  .service-card {
+    width: 320px;
+  }
+}
